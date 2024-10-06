@@ -1,5 +1,6 @@
 import { ErrorRequestHandler } from "express";
 import config from "../config";
+import AppError from "../errors/AppError";
 
 export type TErrorSources = {
     path: string | number;
@@ -17,6 +18,25 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
         message: 'Something went wrong',
       },
     ];
+
+    if (err instanceof AppError) {
+      statusCode = err?.statusCode;
+      message = err.message;
+      errorSources = [
+        {
+          path: '',
+          message: err?.message,
+        },
+      ];
+    } else if (err instanceof Error) {
+      message = err.message;
+      errorSources = [
+        {
+          path: '',
+          message: err?.message,
+        },
+      ];AppError
+    }
 
 
     return res.status(statusCode).json({
