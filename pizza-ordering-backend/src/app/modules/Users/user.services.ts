@@ -14,6 +14,34 @@ const createUserIntoDb = async(payload:TUser)=>{
      return result
 
 }
+const getAllUser = async()=>{
+
+
+     const result =await User.find()
+
+     return result
+
+}
+const updateSingleUser = async(id:string,payload:Partial<TUser>)=>{
+
+
+
+
+     const result =await User.findByIdAndUpdate(id,payload)
+
+     return result
+
+}
+const deleteSingleUser = async(id:string)=>{
+
+
+
+
+     const result =await User.findByIdAndDelete(id)
+
+     return result
+
+}
 
 
 
@@ -21,5 +49,6 @@ const createUserIntoDb = async(payload:TUser)=>{
 
 
 export const UserServices ={
-createUserIntoDb
+createUserIntoDb,
+getAllUser,updateSingleUser,deleteSingleUser
 }

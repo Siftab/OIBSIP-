@@ -8,6 +8,9 @@ const router = express.Router()
 
 // creating user
 router.post('/create-user',UserControllers.createUser)
+router.get('/',UserControllers.getAllUser)
+router.patch('/update-user/:id',UserControllers.updateUser)
+router.patch('/delete-user/:id',UserControllers.deleteSingleUser)
 
 
 
