@@ -4,7 +4,16 @@ import router from "./app/routes";
 const app = express();
 const port = 3000;
 
+// parsers
+app.use(express.json())
+
+
+
+
+
+
 app.use("/api/pizza/", router);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
