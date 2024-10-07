@@ -17,5 +17,7 @@ export default {
    accessTokenexpiries:process.env.JWT_ACCESS_EXPIRES_IN,
    refreshTokenexpiries:process.env.JWT_REFRESH_EXPIRES_IN,
    reset_pass_base_url:process.env.RESET_PASS_UI_LINK,
-   gmail_app_secret : process.env.gmail_app_pass
+   gmail_app_secret : process.env.gmail_app_pass,
+   gmail_user : process.env.gmail_user,
+   reset_Email_base_backend : process.env.RESET_PASS_back_LINK,
 }

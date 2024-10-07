@@ -34,10 +34,53 @@ const loginUser = catchAsync(async (req,res)=>
 })
 
 
+const forgetPassword =catchAsync(async(req,res)=>{
+
+    const {userId} = req.params
+
+    const result = await AuthServices.forgetPassword(userId)
+
+    sendResponse(res,{
+        success:true,
+        statusCode:httpStatus.OK,
+        message:"password link generated successfully ",
+        data:' '
+    })
+    
+})
+const emailVerification =catchAsync(async(req,res)=>{
+
+    const {userId} = req.params
+
+    const result = await AuthServices.emailVerification(userId)
+
+    sendResponse(res,{
+        success:true,
+        statusCode:httpStatus.OK,
+        message:"email link generated successfully ",
+        data:' '
+    })
+    
+})
+
+
+const confirmEmail = catchAsync(async(req,res)=>{
+
+
+    const result = await AuthServices.confirmEmail(req.query.id as string)
+
+
+    sendResponse(res,{
+        success:true,
+        statusCode:httpStatus.OK,
+        message:"email is verfied ",
+        data:result
+    })
+})
+
 
 
 
 
 export const AuthController ={
-    loginUser
-}
+    loginUser,forgetPassword,emailVerification,confirmEmail}
