@@ -8,7 +8,7 @@ export type TErrorSources = {
   }[];
 
 const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
-    console.log(err.statusCode);
+    // console.log(err.statusCode);
     //setting default values
     let statusCode = 500;
     let message = 'Something went wrong!';
@@ -39,13 +39,14 @@ const globalErrorHandler: ErrorRequestHandler = (err, req, res, next) => {
     }
 
 
-    return res.status(statusCode).json({
+     res.status(statusCode).json({
         success: false,
         message,
         errorSources,
         err,
         stack: config.NODE_ENV === 'development' ? err?.stack : null,
       });
+      return
     };
     
     export default globalErrorHandler;

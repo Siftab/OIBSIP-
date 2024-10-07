@@ -15,6 +15,11 @@ const userSchema = new Schema<TUser>({
         type:String,
         required:true
     },
+    isEmailVerified:{
+        type:Boolean,
+        required:true,
+        default:false
+    },
     role:{
         type: String, enum: ['user', 'admin'], default: 'user' 
     }
