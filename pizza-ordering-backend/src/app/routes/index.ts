@@ -2,6 +2,7 @@ import {Router} from 'express'
 import { userRoute } from '../modules/Users/user.route'
 import { authRouter } from '../modules/Auth/auth.route';
 import { pizzaRoute } from '../modules/pizza/pizza.route';
+import { OrderRouter } from '../modules/orders/order.route';
 const router = Router()
 
 
@@ -19,6 +20,12 @@ const moduleRoutes =[{
 ,{
     path:'/',
     route: pizzaRoute
+    
+    
+}
+,{
+    path:'/order',
+    route: OrderRouter
     
     
 }
