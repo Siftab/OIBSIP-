@@ -20,8 +20,23 @@ const createInventory = catchAsync(async(req,res)=>{
     })
 })
 
+ const addInventory  = catchAsync(async(req,res)=>{
+
+    const {itemType, itemId, quantityToAdd}=req.body
+
+    const result = await inventoryServices.addInventory(itemType, itemId, quantityToAdd)
+
+
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:"Inventory Updated succesfully ",
+        data:result
+    })
+ })
+
 
 
 export const InventoryControllers={
-    createInventory
+    createInventory,addInventory
 }

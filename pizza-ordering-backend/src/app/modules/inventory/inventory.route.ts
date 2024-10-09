@@ -9,6 +9,7 @@ const router = Router()
 
 
 router.post('/create-inventory',InventoryControllers.createInventory)
+router.post('/update-inventory',InventoryControllers.addInventory)
 
 
 

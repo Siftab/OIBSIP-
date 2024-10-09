@@ -4,9 +4,10 @@ type PizzaOption ={
     quantity: number; // Added quantity to track inventory
 }
 
-type TPizzaData={
+export type TPizzaData={
    bases: PizzaOption[];
     sauces: PizzaOption[];
     cheeses: PizzaOption[];
     veggies: PizzaOption[];
 }
+export type PizzaItemType = 'bases' | 'sauces' | 'cheeses' | 'veggies';
