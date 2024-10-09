@@ -9,7 +9,7 @@ const router = Router()
 
 router.post('/make-order',OrderControllers.createOrder)
 router.get('/',OrderControllers.getAllOrder)
-router.patch('/update-order/:id',OrderControllers)
+router.patch('/update-order/:id',OrderControllers.updateOrder)
 
 
 
